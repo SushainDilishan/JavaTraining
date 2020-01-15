@@ -3,8 +3,17 @@ import java.util.Scanner;
 
 public class Frog {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         Frog a = new Frog();
-        a.FrogCalculateDistance();
+        int select=0;
+        System.out.println("Type 1 to calculate time and type 2 for distance");
+        select =scanner.nextInt();
+        if(select==1){
+            a.FrogCalculatetime();
+
+        }else if(select==2){
+            a.FrogCalculateDistance();
+        }
     }
 
     void FrogCalculateDistance() {
@@ -45,4 +54,44 @@ public class Frog {
          }
 
     }
-}
+
+    void FrogCalculatetime(){
+
+        Scanner scanner = new Scanner(System.in);
+        boolean validate = false;
+        int distance = 0;
+
+
+        do {
+            System.out.println("Enter the Distance");
+            try {
+                distance = scanner.nextInt();
+                validate = true;
+
+            } catch (InputMismatchException e) {
+
+                System.out.println("Input has to be a number");
+                break;
+            }
+
+        } while (validate == false);
+
+        int remainder = distance%9;
+
+        if (remainder==0){
+
+            System.out.println("Time taken by jhon is "+((distance/9)*8)+" s ");
+        }
+        else if(remainder<=5){
+            System.out.println("Time taken by jhon is " +((distance/9)*8 + 1)+ " s ");
+
+        }else if(remainder<=8) {
+            System.out.println("Time taken by jhon is " + ((distance/9) * 8 + 3) + " s ");
+        }
+        else if(remainder>8) {
+            System.out.println("Time taken by jhon is " + ((distance/9) * 8 + 8) + " s ");
+        }
+    }
+
+    }
+
