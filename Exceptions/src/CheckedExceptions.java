@@ -1,4 +1,5 @@
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class CheckedExceptions {
@@ -14,6 +15,22 @@ public class CheckedExceptions {
         }
 
         input.close();
+        CheckedExceptions a = new CheckedExceptions();
+        a.Usingtrycatch();
+    }
+    public void Usingtrycatch(){
+
+        FileInputStream input1 = null;
+        try {
+            input1 = new FileInputStream("D:/file.txt");
+        } catch(FileNotFoundException e) {
+            System.out.println("The file does not " + "exist at the location");
+        }
+
+
+
+    }
+
     }
 
 }
