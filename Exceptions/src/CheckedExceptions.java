@@ -5,6 +5,13 @@ import java.io.IOException;
 public class CheckedExceptions {
     //this is one way of handling checking exceptions using throws keyword
     public  static void main(String args[]) throws IOException {
+
+        CheckedExceptions a = new CheckedExceptions();
+        a.Usingtrycatch();
+        a.Usingthrowskeyword();
+    }
+    public void Usingthrowskeyword() throws IOException{
+
         FileInputStream input = null;
 
         input = new FileInputStream("D:/file.txt");
@@ -15,8 +22,6 @@ public class CheckedExceptions {
         }
 
         input.close();
-        CheckedExceptions a = new CheckedExceptions();
-        a.Usingtrycatch();
     }
     public void Usingtrycatch(){
 
