@@ -9,6 +9,7 @@ public class CheckedExceptions {
         CheckedExceptions a = new CheckedExceptions();
         a.Usingtrycatch();
         a.Usingthrowskeyword();
+        a.UsingthrowKeyword();
     }
     public void Usingthrowskeyword() throws IOException{
 
