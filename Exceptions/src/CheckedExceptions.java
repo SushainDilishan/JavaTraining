@@ -36,7 +36,23 @@ public class CheckedExceptions {
 
     }
 
+    public void UsingthrowKeyword() {
+
+
+        try
+        {
+            throw new NullPointerException("Testing");
+        }
+        catch(NullPointerException e)
+        {
+            System.out.println("Caught inside method");
+             throw e;
+        }
+
+
     }
 
-}
+    }
+
+
 
