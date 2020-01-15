@@ -16,7 +16,7 @@ public class MultiplicationTable {
         System.out.println("------------------------------------------");
 
         for(int i = 1 ;i<=tableSize;i++) {
-            // print left most column first
+
             System.out.format("%4d |",i);
             for(int j=1;j<=tableSize;j++) {
                 System.out.format("%4d",i*j);
