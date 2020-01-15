@@ -1,12 +1,18 @@
 import java.security.PrivateKey;
 
-public class EncapsulationExample {
+ public class EncapsulationExample {
 
     private String Name;
     private String Profile;
     private int Age;
 
-    public String getName() {
+    innerclass obj = new innerclass();
+
+     public innerclass getObj() {
+         return obj;
+     }
+
+     public String getName() {
         return Name;
     }
 
@@ -32,8 +38,9 @@ public class EncapsulationExample {
     private class innerclass{
 
         void display(){
-            
-            String x = "Sushain";
+
+           String x = "Sushain";
+            System.out.println(x);
 
         }
 
@@ -44,6 +51,7 @@ public class EncapsulationExample {
 
     public static void main(String[] args) {
         EncapsulationExample obj = new EncapsulationExample();
+
         // setting values of the variables
         obj.setName("Renuka Peshwani");
         obj.setAge(24);
