@@ -26,7 +26,7 @@ public class Application {
 
             if (e1.getMarks() > e2.getMarks())
                 return +1;
-            if (e2.getMarks() < e2.getMarks())
+            if (e1.getMarks() < e2.getMarks())
                 return -1;
             return 0;
 
