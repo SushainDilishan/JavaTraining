@@ -6,11 +6,13 @@ public class ClientThreads extends Thread{
     private Socket socket;
     private ChatServer chatServer;
     private PrintWriter printWriter;
+    private String clientName;
 
-public ClientThreads(Socket socket,ChatServer chatServer){
+public ClientThreads(Socket socket,ChatServer chatServer,String clientName){
 
     this.socket = socket;
     this.chatServer = chatServer;
+    this.clientName = clientName;
 
 }
 public void run(){
@@ -24,9 +26,7 @@ public void run(){
 
          printUsers();
 
-         String clientName = reader.readLine();
 
-         chatServer.addClient(clientName);
 
          String serverMessage = "New Client connected " + clientName;
          chatServer.broadcast(serverMessage,this);

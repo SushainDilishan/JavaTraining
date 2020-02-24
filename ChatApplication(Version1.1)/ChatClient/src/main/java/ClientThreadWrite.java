@@ -27,9 +27,8 @@ public class ClientThreadWrite extends  Thread {
     public void run(){
 
         Console console = System.console();
+         String userName = client.getUserName();
 
-        String userName = console.readLine("\nEnter User Name: ");
-        client.setUserName(userName);
         writer.println(userName);
 
         String text;

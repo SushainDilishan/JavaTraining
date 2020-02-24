@@ -1,13 +1,19 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class ChatServer {
     private int port;
-    private Set<String> ChatUsers = new HashSet<>();
-    private Set<ClientThreads> clientThreads = new HashSet<>();
+//    private Set<String> ChatUsers = new HashSet<>();
+//    private Set<ClientThreads> clientThreads = new HashSet<>();
+    private Map<String,ClientThreads> UserMap = new HashMap<String,ClientThreads>();
 
     public ChatServer(int port){
         this.port = port;
@@ -20,8 +26,16 @@ public class ChatServer {
                 while (true){
                     Socket socket = serverSocket.accept();
                     System.out.println("New User Is connected");
-                    ClientThreads clientThreadss = new ClientThreads(socket, this);
-                    clientThreads.add(clientThreadss);
+                    
+                    InputStream inputStream = socket.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                    String clientName = reader.readLine();
+                    
+                    addClient(clientName);
+                    ClientThreads clientThreadss = new ClientThreads(socket, this, clientName);
+                    //UserMap.add(clientThreadss);
+
+                    UserMap.put(clientName, clientThreadss);
                     clientThreadss.start();
                 }
         }catch (IOException ex){
@@ -42,36 +56,32 @@ public class ChatServer {
 
 
     }
-    void broadcast(String msg,ClientThreads excludeClient){
-        for (ClientThreads client: clientThreads){
-
-            if (client !=excludeClient){
-                client.sendMessage(msg);
-            }
-        }
+    void broadcast(String msg,String excludeClient){
+       UserMap.get(excludeClient).sendMessage(msg);
 
     }
-    void addClient(String clientName){
-            ChatUsers.add(clientName);
+    void addClient(String clientName,ClientThreads user){
+    		UserMap.put(clientName, user);
+           // ChatUsers.add(clientName);
 
     }
 
     void removeClient(String clientName,ClientThreads user){
-        boolean removed = ChatUsers.remove(clientName);
+        boolean removed = UserMap.remove(clientName,user);
         if(removed) {
-            clientThreads.remove(user);
 
-            System.out.println(" User " + clientName + " has left");
+           System.out.println(" User " + clientName + " has left");
 
         }
     }
 
-    public Set<String> getChatUsers() {
+    public Map<String,ClientThreads> getChatUsers() {
 
-        return this.ChatUsers;
+        return this.UserMap;
     }
+    
     boolean hasUsers(){
-        return this.ChatUsers.isEmpty();
+        return this.UserMap.isEmpty();
     }
 
 }
