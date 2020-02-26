@@ -14,6 +14,7 @@ public class userRegistration implements HttpHandler {
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
+
         Map<String, Object> map = new HashMap<String, Object>();
         URI uri = httpExchange.getRequestURI();
         String s = uri.getRawQuery();
@@ -28,7 +29,7 @@ public class userRegistration implements HttpHandler {
             System.out.println("User Already Registered");
             meessage = "User Already Registered";
         }else{
-            main.userList.put(userName,new ArrayList());
+            main.userList.put(userName,"");
         }
         System.out.println(main.userList);
 

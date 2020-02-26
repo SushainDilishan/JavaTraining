@@ -14,6 +14,7 @@ public class listUsers implements HttpHandler {
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
+
         Map<String,Object> map = new HashMap<>();
         URI uri = httpExchange.getRequestURI();
         String s = uri.getRawQuery();

@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 public class main {
 
-    public static HashMap<String, ArrayList> userList = new HashMap<>();
+    public static HashMap<String, String> userList = new HashMap<>();
 
     public static void main(String[] args) {
 
@@ -43,20 +43,18 @@ public class main {
             sslContext.init(kmf.getKeyManagers(), tmf.getTrustManagers(), null);
 
 
-//            System.setProperty("javax.net.ssl.trustStore", "src/myKeyStore.jks");
-//            System.setProperty("javax.net.ssl.trustStorePassword", "123456");
-//            System.setProperty("javax.net.debug", "ssl:record");
+;
             httpsServer.setHttpsConfigurator(new HttpsConfigurator(sslContext) {
                 public void configure(HttpsParameters params) {
                     try {
-                        // initialise the SSL context
+
                         SSLContext context = getSSLContext();
                         SSLEngine engine = context.createSSLEngine();
                         params.setNeedClientAuth(false);
                         params.setCipherSuites(engine.getEnabledCipherSuites());
                         params.setProtocols(engine.getEnabledProtocols());
 
-                        // Set the SSL parameters
+
                         SSLParameters sslParameters = context.getSupportedSSLParameters();
                         params.setSSLParameters(sslParameters);
 
@@ -66,12 +64,11 @@ public class main {
                 }
             });
 
-            //Map th httphandlers to url
+
             httpsServer.createContext("/inbox", new acceptMessage());
             httpsServer.createContext("/list", new listUsers());
             httpsServer.createContext("/register", new userRegistration());
             httpsServer.createContext("/send", new sendMessage());
-            httpsServer.createContext("/test", new testClass());
             httpsServer.setExecutor(null); // creates a default executor
             httpsServer.start();
             System.out.println("server started ");

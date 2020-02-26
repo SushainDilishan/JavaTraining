@@ -19,7 +19,7 @@ public class chatClient {
 
 
     static {
-        //for localhost testing only to pass the security
+
         javax.net.ssl.HttpsURLConnection.setDefaultHostnameVerifier(
                 new javax.net.ssl.HostnameVerifier() {
 
@@ -66,7 +66,7 @@ public class chatClient {
             URL url = new URL(httpsURL);
             HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
 
-            //get response sout
+
             InputStream is = conn.getInputStream();
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(isr);
@@ -77,8 +77,8 @@ public class chatClient {
             br.close();
 
 
-            //connect 127.0.0.1:8000 as niroshiaa
-            //send  hello kohomada->ishan
+            //connect 127.0.0.1:8000 as sushi
+
             new Thread(() -> {
                 Scanner send = new Scanner(System.in);
                 System.out.println("Type *list* to find other Chat users ");
@@ -87,18 +87,18 @@ public class chatClient {
                     System.out.print(":");
                     String sendToServer = send.nextLine();
 
-                    //get List of users
+
                     if (sendToServer.equals("list")) {
                         getList();
                     }
-                    //send messages to user
+
                     if (Pattern.matches("send (?<msg>.*)->(?<name>.*)", sendToServer)) {
                         sendToServer(sendToServer);
                     }
-                    //check my message box
-                    if (sendToServer.equals("inbox")) {
-                        checkInbox();
-                    }
+//                    //check my message box
+//                    if (sendToServer.equals("inbox")) {
+//                        checkInbox();
+//                    }
                 }
             }).start();
 
@@ -109,11 +109,11 @@ public class chatClient {
                     try {
                         Thread.sleep(4000);
                         String httpsURL1 = "https://127.0.0.1:8000/inbox?name=" + name;
-                        URL myUrl1 = new URL(httpsURL1);
-                        HttpsURLConnection conn1 = (HttpsURLConnection) myUrl1.openConnection();
+                        URL url1 = new URL(httpsURL1);
+                        HttpsURLConnection  connection = (HttpsURLConnection) url1.openConnection();
 
-                        //get response sout
-                        InputStream inputStream= conn1.getInputStream();
+
+                        InputStream inputStream= connection.getInputStream();
                         InputStreamReader reader = new InputStreamReader(inputStream);
                         BufferedReader reader1 = new BufferedReader(reader);
                         String inputLine1;
@@ -129,11 +129,12 @@ public class chatClient {
             }).start();
 
         } else {
-            System.out.println("Wronge Command !");
+            System.out.println("Wrong Input !");
         }
     }
 
     private static void sendToServer(String sendToServer) {
+
         try {
             System.out.println("send message");
             System.out.println(sendToServer);
@@ -170,13 +171,14 @@ public class chatClient {
     }
 
     private static void getList() {
+
         try {
             System.out.println("list");
             String httpsURL1 = "https://127.0.0.1:8000/list?name=" + name;
             URL myUrl1 = new URL(httpsURL1);
             HttpsURLConnection conn1 = (HttpsURLConnection) myUrl1.openConnection();
 
-            //get response sout
+
             InputStream stream = conn1.getInputStream();
             InputStreamReader reader = new InputStreamReader(stream);
             BufferedReader bufferedReader = new BufferedReader(reader);
@@ -192,12 +194,12 @@ public class chatClient {
 
     private static void checkInbox() {
         try {
-            // System.out.println("inbox________________");
+
             String httpsURL1 = "https://127.0.0.1:8000/inbox?name=" + name;
             URL myUrl1 = new URL(httpsURL1);
             HttpsURLConnection conn1 = (HttpsURLConnection) myUrl1.openConnection();
 
-            //get response sout
+
             InputStream is1 = conn1.getInputStream();
             InputStreamReader isr1 = new InputStreamReader(is1);
             BufferedReader br1 = new BufferedReader(isr1);

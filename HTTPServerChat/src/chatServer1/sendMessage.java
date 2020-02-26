@@ -33,8 +33,8 @@ public class sendMessage implements HttpHandler {
 
                 main.userList.keySet().forEach(name->{
                     if (receiver.equals(name)){
-                        main.userList.get(name).add(0,new ArrayList<String>());
-                        main.userList.get(name).add(1,sender+"->"+message);
+
+                        main.userList.put(name,sender +"->"+ message);
 
                     } });
                 System.out.println(main.userList.values());

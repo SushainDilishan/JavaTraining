@@ -14,6 +14,8 @@ public class acceptMessage implements HttpHandler {
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
+
+        new Thread(()->{
         try{
             Map<String,Object> map = new HashMap<>();
             URI uri = httpExchange.getRequestURI();
@@ -24,14 +26,13 @@ public class acceptMessage implements HttpHandler {
 
             String message = "no";
 
-            if ( main.userList.get(message).size() >1) {
-                for (String name : main.userList.keySet()) {
-                    if (name.equals(name)) {
-                        name = name+ main.userList.get(name).get(1);
-                        main.userList.get(name).set(1, "");
-                    }
-                }
-            }
+           while (true){
+               if (!main.userList.get(userName).equals("")){
+                   message = main.userList.get(userName);
+                   main.userList.put(userName,"");
+                   break;
+               }
+           }
 
             System.out.println(main.userList + "Sent");
 
@@ -44,6 +45,6 @@ public class acceptMessage implements HttpHandler {
             System.out.println("Message Accept Fail");
             e.printStackTrace();
 
-        }
+        }}).start();
     }
 }
