@@ -1,4 +1,4 @@
-package chatClient;
+package chatServer1;
 
 import com.sun.net.httpserver.*;
 
