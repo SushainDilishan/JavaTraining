@@ -16,12 +16,13 @@ public class sendMessage implements HttpHandler {
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
-        Map<String,Object> map = new HashMap<>();
+
         URI uri = httpExchange.getRequestURI();
         String s = uri.getRawQuery();
 
         try{
-            Matcher matcher = Pattern.compile("message=(?<msg>\\w*)&receiver=(?<rec>\\w*)&sender=(?<sen>\\w*)").matcher(s);
+            Matcher matcher = Pattern.compile("message=(?<msg>\\w*)&receiver=" +
+                    "(?<rec>\\w*)&sender=(?<sen>\\w*)").matcher(s);
             if(matcher.find()){
                 System.out.println("message :"+ matcher.group("msg"));
                 System.out.println("Sent to: "+ matcher.group("rec"));
@@ -39,7 +40,7 @@ public class sendMessage implements HttpHandler {
                     } });
                 System.out.println(main.userList.values());
 
-                String response = "Message Sent to" + receiver;
+                String response = "Delivered to " + receiver;
 
                 httpExchange.sendResponseHeaders(200,response.length());
                 OutputStream outputStream = httpExchange.getResponseBody();

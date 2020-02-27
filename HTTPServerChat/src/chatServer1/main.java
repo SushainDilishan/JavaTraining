@@ -42,8 +42,8 @@ public class main {
             // setup the HTTPS context and parameters
             sslContext.init(kmf.getKeyManagers(), tmf.getTrustManagers(), null);
 
+           // System.setProperty("javax.net.debug", "ssl:record");
 
-;
             httpsServer.setHttpsConfigurator(new HttpsConfigurator(sslContext) {
                 public void configure(HttpsParameters params) {
                     try {
@@ -65,13 +65,13 @@ public class main {
             });
 
 
-            httpsServer.createContext("/inbox", new acceptMessage());
-            httpsServer.createContext("/list", new listUsers());
             httpsServer.createContext("/register", new userRegistration());
+            httpsServer.createContext("/list", new listUsers());
             httpsServer.createContext("/send", new sendMessage());
+            httpsServer.createContext("/inbox", new acceptMessage());
             httpsServer.setExecutor(null); // creates a default executor
             httpsServer.start();
-            System.out.println("server started ");
+            System.out.println("Chat Server Online ");
 
         }catch(Exception exception){
             System.out.println("Failed to create HTTPS server on port " + 8000 + " of localhost");

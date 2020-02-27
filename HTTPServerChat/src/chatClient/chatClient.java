@@ -95,10 +95,7 @@ public class chatClient {
                     if (Pattern.matches("send (?<msg>.*)->(?<name>.*)", sendToServer)) {
                         sendToServer(sendToServer);
                     }
-//                    //check my message box
-//                    if (sendToServer.equals("inbox")) {
-//                        checkInbox();
-//                    }
+
                 }
             }).start();
 
@@ -119,7 +116,7 @@ public class chatClient {
                         String inputLine1;
                         while ((inputLine1 = reader1.readLine()) != null) {
                             if (!inputLine1.equals("no"))
-                                System.out.println(inputLine1.substring(2,inputLine1.length()));
+                                System.out.println(inputLine1);
                         }
                         reader1.close();
                     } catch (Exception e) {
@@ -136,17 +133,15 @@ public class chatClient {
     private static void sendToServer(String sendToServer) {
 
         try {
-            System.out.println("send message");
-            System.out.println(sendToServer);
+
 
             Matcher matcher2 = Pattern.compile("send (?<msg>.*)->(?<name>.*)").matcher(sendToServer);
             if (matcher2.find()) {
-                System.out.println("message: " + matcher2.group("msg"));
-                System.out.println("receiver name: " + matcher2.group("name"));
+
                 String message = matcher2.group("msg");
                 String receiver = matcher2.group("name");
                 String sender = name;
-                System.out.println("sender :" + name);
+
 
                 String httpsURL1 = "https://127.0.0.1:8000/send?message=" + message
                         + "&receiver=" + receiver
@@ -192,29 +187,6 @@ public class chatClient {
         }
     }
 
-    private static void checkInbox() {
-        try {
 
-            String httpsURL1 = "https://127.0.0.1:8000/inbox?name=" + name;
-            URL myUrl1 = new URL(httpsURL1);
-            HttpsURLConnection conn1 = (HttpsURLConnection) myUrl1.openConnection();
-
-
-            InputStream is1 = conn1.getInputStream();
-            InputStreamReader isr1 = new InputStreamReader(is1);
-            BufferedReader br1 = new BufferedReader(isr1);
-            String inputLine1;
-            while ((inputLine1 = br1.readLine()) != null) {
-                if (!inputLine1.equals("no")) {
-                    System.out.println(inputLine1);
-                } else {
-                    System.out.println("NO messages !");
-                }
-            }
-            br1.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
 }

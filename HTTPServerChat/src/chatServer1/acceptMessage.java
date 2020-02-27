@@ -17,7 +17,7 @@ public class acceptMessage implements HttpHandler {
 
         new Thread(()->{
         try{
-            Map<String,Object> map = new HashMap<>();
+
             URI uri = httpExchange.getRequestURI();
             String s = uri.getRawQuery();
 
