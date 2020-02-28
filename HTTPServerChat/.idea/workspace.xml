@@ -4,14 +4,10 @@
     <list default="true" id="e44a0cf6-d21b-4774-aa24-59097f7f33bb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/HTTPServerChat/chatClient/chatClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HTTPServerChat/chatClient/chatClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTTPServerChat/chatServer1/acceptMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HTTPServerChat/chatServer1/acceptMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTTPServerChat/chatServer1/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HTTPServerChat/chatServer1/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTTPServerChat/chatServer1/sendMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HTTPServerChat/chatServer1/sendMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTTPServerChat/chatServer1/testClass.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/chatClient/chatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatClient/chatClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chatServer1/acceptMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatServer1/acceptMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chatServer1/listUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatServer1/listUsers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/chatServer1/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatServer1/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chatServer1/sendMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatServer1/sendMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chatServer1/userRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatServer1/userRegistration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,26 +124,26 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="568" y="185" width="424" height="491" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1582623221093" />
-    <state width="1267" height="96" key="GridCell.Tab.0.bottom" timestamp="1582820999754">
+    <state width="1267" height="96" key="GridCell.Tab.0.bottom" timestamp="1582854424772">
       <screen x="53" y="27" width="1313" height="741" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1582637220443" />
-    <state width="1267" height="96" key="GridCell.Tab.0.bottom/53.27.1313.741@53.27.1313.741" timestamp="1582820999754" />
-    <state width="1267" height="96" key="GridCell.Tab.0.center" timestamp="1582820999753">
+    <state width="1267" height="96" key="GridCell.Tab.0.bottom/53.27.1313.741@53.27.1313.741" timestamp="1582854424772" />
+    <state width="1267" height="96" key="GridCell.Tab.0.center" timestamp="1582854424772">
       <screen x="53" y="27" width="1313" height="741" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1582637220443" />
-    <state width="1267" height="96" key="GridCell.Tab.0.center/53.27.1313.741@53.27.1313.741" timestamp="1582820999753" />
-    <state width="1267" height="96" key="GridCell.Tab.0.left" timestamp="1582820999753">
+    <state width="1267" height="96" key="GridCell.Tab.0.center/53.27.1313.741@53.27.1313.741" timestamp="1582854424772" />
+    <state width="1267" height="96" key="GridCell.Tab.0.left" timestamp="1582854424772">
       <screen x="53" y="27" width="1313" height="741" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1582637220443" />
-    <state width="1267" height="96" key="GridCell.Tab.0.left/53.27.1313.741@53.27.1313.741" timestamp="1582820999753" />
-    <state width="1267" height="96" key="GridCell.Tab.0.right" timestamp="1582820999754">
+    <state width="1267" height="96" key="GridCell.Tab.0.left/53.27.1313.741@53.27.1313.741" timestamp="1582854424772" />
+    <state width="1267" height="96" key="GridCell.Tab.0.right" timestamp="1582854424772">
       <screen x="53" y="27" width="1313" height="741" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1582637220443" />
-    <state width="1267" height="96" key="GridCell.Tab.0.right/53.27.1313.741@53.27.1313.741" timestamp="1582820999754" />
+    <state width="1267" height="96" key="GridCell.Tab.0.right/53.27.1313.741@53.27.1313.741" timestamp="1582854424772" />
     <state width="1267" height="209" key="GridCell.Tab.1.bottom" timestamp="1582820998986">
       <screen x="53" y="27" width="1313" height="741" />
     </state>

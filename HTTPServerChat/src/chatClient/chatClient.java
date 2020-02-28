@@ -81,7 +81,7 @@ public class chatClient {
 
             new Thread(() -> {
                 Scanner send = new Scanner(System.in);
-                System.out.println("Type *list* to find other Chat users ");
+                System.out.println("Enter *list* to see who is online ");
                 System.out.println("Use *Send <messageBody> -> <Receiver Name>*");
                 while (true) {
                     System.out.print(":");

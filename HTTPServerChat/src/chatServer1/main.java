@@ -69,7 +69,7 @@ public class main {
             httpsServer.createContext("/list", new listUsers());
             httpsServer.createContext("/send", new sendMessage());
             httpsServer.createContext("/inbox", new acceptMessage());
-            httpsServer.setExecutor(null); // creates a default executor
+            httpsServer.setExecutor(null);
             httpsServer.start();
             System.out.println("Chat Server Online ");
 
